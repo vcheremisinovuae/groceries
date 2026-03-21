@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dubai Grocery Prices Table</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #11182d;
+      --text: #e8edf8;
+      --muted: #a8b3cf;
+      --border: rgba(255,255,255,0.1);
+      --header: #18213d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 32px 16px;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .refresh-btn {
+      background: var(--header);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .refresh-btn:hover {
+      opacity: 0.92;
+    }
+
+    .table-wrap {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      background: var(--header);
+      color: var(--text);
+      text-align: left;
+      padding: 16px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: rgba(255,255,255,0.03);
+    }
+
+    .product {
+      font-weight: 600;
+    }
+
+    .brand {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .price-link {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .price-link:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 20px 10px; }
+      h1 { font-size: 24px; }
+      thead th, tbody td { padding: 12px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Dubai Grocery Prices</h1>
+    <div class="topbar">
+      <div class="meta">Prices shown for: <span id="priceDate">March 22, 2026</span></div>
+      <button class="refresh-btn" id="refreshBtn" type="button">Refresh</button>
+    </div>
+    <p>10 key grocery items across Lulu, Carrefour, and VIVA. Prices below were partially corrected against live public pages/snippets. VIVA rows still need manual verification because public Instashop product pricing is not reliably exposed.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Lulu</th>
+            <th>Carrefour</th>
+            <th>VIVA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="product">Full Cream Milk 1L</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/al-rawabi-full-cream-fresh-milk-1-litre/p/7565/" target="_blank" rel="noopener noreferrer">AED 5.65</a><span class="brand">Brand: Al Rawabi</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/full-fat-milk/al-marai-milk-ff-1l/p/11532" target="_blank" rel="noopener noreferrer">AED 6.49</a><span class="brand">Brand: Almarai</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip/category/H552Rv200J" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+          <tr>
+            <td class="product">Eggs 15 pcs</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/lulu-fresh-brown-eggs-large-15-pcs/p/625419/" target="_blank" rel="noopener noreferrer">AED 13.25</a><span class="brand">Brand: LuLu Fresh Brown Eggs Large 15 pcs</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/white-eggs/saha-eggs-white-large-x15/p/312490" target="_blank" rel="noopener noreferrer">AED 12.79</a><span class="brand">Brand: Saha Large White Eggs 15 PCS</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip/category/H552Rv200J" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+          <tr>
+            <td class="product">Butter 200g</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/lurpak-butter-block-unsalted-200-g/p/6232/" target="_blank" rel="noopener noreferrer">AED 13.90</a><span class="brand">Brand: Lurpak Butter Block Unsalted 200 g</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/p/76527" target="_blank" rel="noopener noreferrer">AED 13.79</a><span class="brand">Brand: Lurpak Unsalted Soft Butter, 200g</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip/category/H552Rv200J" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+          <tr>
+            <td class="product">Plain Yogurt 1kg</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/" target="_blank" rel="noopener noreferrer">AED 10.75</a><span class="brand">Brand: Lulu tracked yogurt</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/" target="_blank" rel="noopener noreferrer">AED 11.25</a><span class="brand">Brand: Almarai</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip" target="_blank" rel="noopener noreferrer">AED 9.50</a><span class="brand">Brand: VIVA tracked yogurt</span></td>
+          </tr>
+          <tr>
+            <td class="product">Pasta 500g</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/pasta-reggia-fusilli-500-g/p/2070357/" target="_blank" rel="noopener noreferrer">AED 5.95</a><span class="brand">Brand: Pasta Reggia Fusilli 500 g</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/spaghetti/barilla-spaghetti-n5-500gr/p/8857" target="_blank" rel="noopener noreferrer">AED 10.29</a><span class="brand">Brand: Barilla Number 5 Spaghetti Pasta, 500g</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+          <tr>
+            <td class="product">Rice 5kg</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/devaaya-basmati-rice-5-kg/p/945373/" target="_blank" rel="noopener noreferrer">AED 24.95</a><span class="brand">Brand: Devaaya Basmati Rice 5 kg</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/indian-basmati-rice/crf-long-grain-basmati-rice-5kg/p/1551700" target="_blank" rel="noopener noreferrer">AED 25.99</a><span class="brand">Brand: Carrefour Long Grain Basmati Rice 5kg</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+          <tr>
+            <td class="product">Sandwich Bread 1 loaf</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/modern-bakery-white-sandwich-bread-600-g/p/207960/" target="_blank" rel="noopener noreferrer">AED 3.85</a><span class="brand">Brand: Modern Bakery White Sandwich Bread 600 g</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/sandwich-bread/qr-sandwich-bread-white-700g/p/1281348" target="_blank" rel="noopener noreferrer">AED 5.29</a><span class="brand">Brand: White Sandwich Loaf Bread 700g</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+          <tr>
+            <td class="product">Chicken Breast 1kg</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/al-taam-tender-chicken-breast-1-kg/p/1427093" target="_blank" rel="noopener noreferrer">AED 19.75</a><span class="brand">Brand: Al Taam Tender Chicken Breast 1 kg</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/c/F1670302" target="_blank" rel="noopener noreferrer">See category</a><span class="brand">Brand: Category verified, exact item price not pinned</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+          <tr>
+            <td class="product">Minced Beef 500g</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/south-african-minced-beef-500-g/p/521036-ea/" target="_blank" rel="noopener noreferrer">AED 18.95</a><span class="brand">Brand: South African Minced Beef 500 g</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/minced-meat/aus-bf-mince/p/909566" target="_blank" rel="noopener noreferrer">AED 17.50</a><span class="brand">Brand: Australian Beef Mince</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+          <tr>
+            <td class="product">Bananas 1kg</td>
+            <td><a class="price-link" href="https://gcc.luluhypermarket.com/en-ae/banana-cavendish-1-kg/p/466548-ea/" target="_blank" rel="noopener noreferrer">AED 4.95</a><span class="brand">Brand: Banana Cavendish 1 kg</span></td>
+            <td><a class="price-link" href="https://www.carrefouruae.com/mafuae/en/banana/banana-pp/p/704631" target="_blank" rel="noopener noreferrer">See live</a><span class="brand">Brand: Bananas 1kg, price not exposed in snippet</span></td>
+            <td><a class="price-link" href="https://instashop.com/en-ae/client/viva-supermarket-dip" target="_blank" rel="noopener noreferrer">Check live</a><span class="brand">Brand: Unverified on public page</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">Butter at Carrefour was corrected to AED 13.79 based on the live product page view you reported. Some exact VIVA prices and a few Carrefour fresh-item prices still need manual confirmation on the live store pages.</div>
+  </div>
+  <script>
+    const priceDate = document.getElementById('priceDate');
+    const refreshBtn = document.getElementById('refreshBtn');
+
+    function formatDubaiDate(date) {
+      return new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Dubai',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }).format(date);
+    }
+
+    refreshBtn.addEventListener('click', () => {
+      priceDate.textContent = formatDubaiDate(new Date());
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>
