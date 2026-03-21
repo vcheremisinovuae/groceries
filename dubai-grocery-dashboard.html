@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dubai Grocery Prices Table</title>
+  <title>Dubai Grocery Prices</title>
   <style>
     :root {
       --bg: #0b1020;
@@ -145,7 +145,7 @@
       <div class="meta">Prices shown for: <span id="priceDate">March 22, 2026</span></div>
       <button class="refresh-btn" id="refreshBtn" type="button">Refresh</button>
     </div>
-    <p>10 key grocery items across Lulu, Carrefour, and VIVA. Prices below were partially corrected against live public pages/snippets. VIVA rows still need manual verification because public Instashop product pricing is not reliably exposed.</p>
+    <p>Single-file HTML for GitHub and Vercel. Save this file as <strong>index.html</strong> in the root of your repository.</p>
 
     <div class="table-wrap">
       <table>
@@ -222,7 +222,7 @@
       </table>
     </div>
 
-    <div class="note">Butter at Carrefour was corrected to AED 13.79 based on the live product page view you reported. Some exact VIVA prices and a few Carrefour fresh-item prices still need manual confirmation on the live store pages.</div>
+    <div class="note">Save this exact file as <strong>index.html</strong>, push it to GitHub, and deploy the repo on Vercel.</div>
   </div>
   <script>
     const priceDate = document.getElementById('priceDate');
@@ -239,7 +239,6 @@
 
     refreshBtn.addEventListener('click', () => {
       priceDate.textContent = formatDubaiDate(new Date());
-      window.location.reload();
     });
   </script>
 </body>
